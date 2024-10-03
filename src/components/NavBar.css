@@ -1,0 +1,152 @@
+.heading {
+  color: #37447e;
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-toggle-button {
+  display: none;
+}
+
+.ul {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+}
+
+.ul-link {
+  font-size: 14px;
+}
+
+.menu-buy-now {
+  display: none;
+}
+
+.nav-bar-buy-now-button {
+  display: flex;
+}
+
+/* Mobile Styles: Hide menu by default on small screens */
+@media (max-width: 800px) {
+  /* Show middle heading */
+  .heading {
+    text-align: center;
+  }
+
+  /* Display toggle button */
+  .menu-toggle-button {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 1.4rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  /* When menu is open, show nav and buy now */
+  .show {
+    display: block;
+  }
+
+  /* Default hide class for nav and buy now */
+  .hide,
+  .nav-bar-buy-now-button {
+    display: none;
+  }
+
+  .nav-list {
+    display: block;
+    position: absolute;
+    background-color: #f0f0f0;
+    width: 100%;
+    top: 0;
+    padding: 1rem 0 2rem 0;
+    transform: translateY(0%); /* Move menu above the viewport */
+    transition: transform 0.3s ease-out, opacity 2s ease-out;
+  }
+
+  .ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .ul-link {
+    font-size: 14px;
+  }
+
+  .menu-buy-now {
+    display: flex;
+  }
+
+  .menu-buy-now-button {
+    background-color: var(--primary-button-background);
+    color: white;
+    padding: 4px 34px;
+    border-radius: 3px;
+    border: 0;
+    margin: 1rem 0 0 2rem;
+  }
+  
+  /* Slide-in from the top */
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Slide-out to the top */
+  @keyframes slideOutToTop {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
+  /* Default style for sliding div */
+  .sliding-div {
+    width: 100%;
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Apply the slide-in animation */
+  .slide-in {
+    animation: slideInFromTop 0.5s ease-out forwards;
+  }
+
+  /* Apply the slide-out animation */
+  .slide-out {
+    animation: slideOutToTop 0.5s ease-out forwards;
+  }
+}
